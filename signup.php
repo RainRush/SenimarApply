@@ -132,7 +132,7 @@
 											$Insti = mb_convert_encoding($_POST['Insti'], "UTF-8", "auto");
 											$Title = mb_convert_encoding($_POST['Title'], "UTF-8", "auto");
 											$Phone = mb_convert_encoding($_POST['Phone'], "UTF-8", "auto");
-											mysql_query(" INSERT INTO SIGNUP (Name,Insti,Title,Phone,Email,Result) VALUES ($Name', '$Insti', '$Title', '$Phone', '$Email','0')");
+											mysql_query(" INSERT INTO SIGNUP (Name,Insti,Title,Phone,Email,Result) VALUES ('$Name', '$Insti', '$Title', '$Phone', '$Email','0')");
 											echo "<script langusge=\"javaScript\">";
 											echo "window.alert(\"報名表已寄出，請在三天後來此確認報名結果，謝謝！\");";
 											echo "location.href(\"" .$insertGoTo. "\");";

@@ -71,21 +71,21 @@
 						for($i=0; $i<($CountNo);$i++){
 							$rs = mysql_fetch_row($data);
 							echo '<tr class="default">';
+							echo '<td>' . $rs[0] . '</td>';
 							echo '<td>' . $rs[1] . '</td>';
 							echo '<td>' . $rs[2] . '</td>';
-							echo '<td>' . $rs[3] . '</td>';
-							if($rs[6]=='0')
+							if($rs[5]=='0')
 								echo '<td class="active">未審核</td>';
-							else if($rs[6]=='1')
+							else if($rs[5]=='1')
 								echo '<td class="danger">身分不符合</td>';
-							else if($rs[6]=='2')
+							else if($rs[5]=='2')
 								echo '<td class="warning">符合但還須繳費</td>';
-							else if($rs[6]=='3')
+							else if($rs[5]=='3')
 								echo '<td class="success">符合且不須繳費</td>';
-							else if($rs[6]=='4')
+							else if($rs[5]=='4')
 								echo '<td class="active">需檢查收據</td>';
 							echo ('<td>
-									<a type="button" class="btn btn-default" href="./giveresult.php?Phone='.$rs[4].'">給審核結果</a>
+									<a type="button" class="btn btn-default" href="./giveresult.php?Phone='.$rs[3].'">給審核結果</a>
 									<a type="button" class="btn btn-default" href="http://140.120.54.230/dan3388d/sys/'.$FileURL.'">下載照片</a>
 								</td>');
 							echo '</tr>';

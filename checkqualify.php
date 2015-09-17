@@ -60,12 +60,16 @@
 							$row = mysql_fetch_row($result);
 							if($Phone != null && $row[0]!= null){
 								$_SESSION['Phone'] = $Phone;
-								if($row[6] == '1')
-									echo '<meta http-equiv=REFRESH CONTENT=0;url=sorrypage>';
-								else if($row[6] == '2')
-									echo '<meta http-equiv=REFRESH CONTENT=0;url=payment.php?Phone='.$row[4].'>';
-								else if($row[6] == '3')
-									echo '<meta http-equiv=REFRESH CONTENT=0;url=successful';
+								if($row[5] == '0')
+									echo '<p style="color:red">本號碼尚未完成審核</p>';
+								else if($row[5] == '1')
+									echo '<meta http-equiv=REFRESH CONTENT=0;url=resultpage.php?Phone='.$row[3].'>';
+								else if($row[5] == '2')
+									echo '<meta http-equiv=REFRESH CONTENT=0;url=payment.php?Phone='.$row[3].'>';
+								else if($row[5] == '3')
+									echo '<meta http-equiv=REFRESH CONTENT=0;url=successful>';
+								else if($row[5] == '4')
+									echo '<p style="color:red">收據已上傳成功，正在確認收款</p>';
 							}
 							else
 								echo '<p style="color:red">電話</p>';
