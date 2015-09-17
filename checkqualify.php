@@ -67,7 +67,7 @@
 								else if($row[5] == '2')
 									echo '<meta http-equiv=REFRESH CONTENT=0;url=payment.php?Phone='.$row[3].'>';
 								else if($row[5] == '3')
-									echo '<meta http-equiv=REFRESH CONTENT=0;url=successful>';
+									echo '<meta http-equiv=REFRESH CONTENT=0;url=notifyinfo.php?Phone='.$row[3].'>';
 								else if($row[5] == '4')
 									echo '<p style="color:red">收據已上傳成功，正在確認收款</p>';
 							}

@@ -16,6 +16,20 @@
 	
   </head>
   <body>
+  	<?php
+  		if ($_SESSION['Phone'] != NULL){
+  			$conn = mysql_connect("localhost", "dan3388d", "dan3388d@ic@sql");
+			mysql_select_db("dan3388d") or die("Unable to connect to the server. Please try again later.");
+			mysql_query(" set names utf8 ");
+			mysql_query(" SET CHARACTER SET  'UTF8 '; ");
+			mysql_query('SET CHARACTER_SET_CLIENT=UTF8; ');
+			mysql_query('SET CHARACTER_SET_RESULTS=UTF8; ');
+			$Phone1 = $_SESSION['Phone'];
+			$Phone = $_GET['Phone'];
+			if ($Phone1 != $Phone)
+				echo '<meta http-equiv="REFRESH" content="0 ; url=checkqualify.php">';
+  		}
+  	?>
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -35,16 +49,17 @@
 		<div class="col-md-8" align="center">
 			<br><br><br><br><br><br>
 			<h1 class="text-center">
-				請確認您的資料
+				親愛的<?php
+				$sql = mysql_query("SELECT * FROM SIGNUP WHERE Phone = '$Phone'");
+				$row = mysql_fetch_row($sql);
+				echo $row[0];
+				?>
+				先生/小姐您好：
 			</h1>
+			<h2 class="text-center">
+				請確認您的資料
+			</h2>
 			<?php
-				$conn = mysql_connect("localhost", "dan3388d", "dan3388d@ic@sql");
-				mysql_select_db("dan3388d") or die("Unable to connect to the server. Please try again later.");
-				mysql_query(" set names utf8 ");
-				mysql_query(" SET CHARACTER SET  'UTF8 '; ");
-				mysql_query('SET CHARACTER_SET_CLIENT=UTF8; ');
-				mysql_query('SET CHARACTER_SET_RESULTS=UTF8; ');
-				$Phone = $_GET['Phone'];
 				$sql = mysql_query("SELECT * FROM SIGNUP WHERE Phone = '$Phone'");
 				$row = mysql_fetch_row($sql);
 				if (isset($_POST['paper'])){
@@ -74,10 +89,10 @@
   				}
 			?>
 
-			<h3>姓名： <?php echo $row[1]?><h3>
-			<h3>單位： <?php echo $row[2]?><h3>
-			<h3>職稱： <?php echo $row[3]?><h3>
-			<h3>Email： <?php echo $row[5]?><h3>
+			<h3>姓名： <?php echo $row[0]?><h3>
+			<h3>單位： <?php echo $row[1]?><h3>
+			<h3>職稱： <?php echo $row[2]?><h3>
+			<h3>Email： <?php echo $row[4]?><h3>
 			<br><br>
 			<h3>繳費資訊：...<h3>	<!--跟老師拿資料-->
 			<h3>上傳繳費收據照片<h3>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>審核結果</title>
+    <title>報名成功</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -56,37 +56,12 @@
 				?>
 				先生/小姐您好：
 			</h1>
-			<?php
-				if (isset($_POST['paper'])){
-					if($_FILES['File']['error'])
-						echo '<p style="color:red">上傳失敗</p>';
-					else{
-						//echo $_FILES['File']['name'];
-						$FileName = $_FILES['File']['Name'];
-						move_uploaded_file($_FILES['File']['tmp_name'], 'upload/'.session_id().'_'. time().'.'.pathinfo($_FILES['File']['name'],PATHINFO_EXTENSION));
-						$Email = $_SESSION['Email'];
-						$data = mysql_query("SELECT * FROM SUBMIT");
-						$CountNo = mysql_num_rows($data);
-						$PaperNo = $CountNo + 1;
-						//echo $_FILES['File']['name'];
-						$FileName = $_FILES['File']['name'];
-						//echo $FileName;
-						$FileURL = 'upload/'.session_id().'_'. time().'.'.pathinfo($_FILES['File']['name'],PATHINFO_EXTENSION);
-						mysql_query("UPDATE SIGNUP SET FileURL = '$FileURL' WHERE Phone = '$Phone'");
-						mysql_query("UPDATE SIGNUP SET Result = '4' WHERE Phone = '$Phone'");
-						echo "<script langusge=\"javaScript\">";
-						echo "window.alert(\"收據上傳已成功，請您再來確認報名情形，謝謝！\");";
-						echo "location.href(\"" .$insertGoTo. "\");";
-						echo "</script>";
-						echo '<meta http-equiv="refresh" content="0 ; url=./checkqualify.php">';
-					}
-	
-  				}
-			?>
-
-			<p>非常抱歉，由於本次座談會會場座位有限，無法讓每一位欲參加者盡能餐與。</p>
-			<p>仍非常感謝您對這次研討會的支持，謝謝您！</p>
-			
+			<h2 class="text-center" style="color:red">
+				恭喜您報名成功
+			</h2>
+			<br>
+			<h3>以下為研討會資訊：<h3>
+			<p>地點於：...</p><!--跟老師拿資料-->
 		</div>
 		<div class="col-md-2">
 		</div>
