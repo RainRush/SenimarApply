@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>		<!-- Version 1.0.0, by H.Y.Hu -->
 <html lang="en">
   <head><script type="text/javascript" src="/44028BD508DB4F66B4F61BBB0E6DF1D8/0D227E70-DCB0-EA4B-826B-40D0634A0024/main.js" charset="UTF-8"></script>
     <meta charset="utf-8">
@@ -32,7 +32,7 @@
 		<div class="col-md-8 column" align="center">
 			<form class="form-horizontal" role="form" id= "form1" name= "form1" method= "post">
 				<p style="color:white">_<br>_<br>_<br>_<br>_<br>_<br>_</p>
-				<a href="./checkqualify.php" class="btn btn-link btn-default" type="button">已經報名過了嗎？查詢審核結果</a> 
+				<a href="./checkqualify.php" class="btn btn-link btn-default" type="button">已經報名過了嗎？查詢報名審核結果</a> 
 				<p style="color:white">_<br>_</p>
 				<div class="form-group">
 					 <label for="Name" class="col-sm-4 control-label">姓名</label>
@@ -106,8 +106,7 @@
 								mysql_query(" SET CHARACTER SET  'UTF8 '; ");
 								mysql_query('SET CHARACTER_SET_CLIENT=UTF8; ');
 								mysql_query('SET CHARACTER_SET_RESULTS=UTF8; ');
-								//$CountPost = count($_POST);
-								if (isset($_POST['register'])){
+								if (isset($_POST['register'])){							//按下報名執行
 									if($_POST['Name'] == NULL)
 										echo '<p style="color:red">請填入姓名</p>';
 									else if($_POST['Insti'] == NULL)

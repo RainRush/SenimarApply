@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); ?>	<!-- Version 1.0.0, by H.Y.Hu -->
 <!DOCTYPE html>
 <html lang="en">
   <head><script type="text/javascript" src="/44028BD508DB4F66B4F61BBB0E6DF1D8/0EBEC49B-DE2E-6840-A4E0-82352377F2C6/main.js" charset="UTF-8"></script>
@@ -86,7 +86,7 @@
 								echo '<td class="active">需檢查收據</td>';
 							echo ('<td>
 									<a type="button" class="btn btn-default" href="./giveresult.php?Phone='.$rs[3].'">給審核結果</a>
-									<a type="button" class="btn btn-default" href="http://140.120.54.230/dan3388d/signup/'.$rs[6].'">下載照片</a>
+									<a type="button" class="btn btn-default" href="http://140.120.54.230/dan3388d/signup/'.$rs[6].'">查看收據照片</a>
 								</td>');
 							echo '</tr>';
 						}
